@@ -1,3 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+
+/*
+ * Complete the 'separateNumbers' function below.
+ *
+ * The function accepts STRING s as parameter.
+ */
+
 void separateNumbers(string s)
 {
     std::string temp;
