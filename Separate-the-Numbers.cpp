@@ -11,6 +11,43 @@ string rtrim(const string &);
  * The function accepts STRING s as parameter.
  */
 
+
+void separateNumbers(string s)
+{
+    int maxLen = s.size() / 2;
+
+    for (int len = 1; len <= maxLen; ++len)
+    {
+        string first_str = s.substr(0, len);
+
+        if (first_str[0] == '0')
+            continue;
+
+        long long first = stoll(first_str);
+        long long current = first;
+        size_t pos = 0;
+
+        while (pos < s.size())
+        {
+            string currentStr = to_string(current);
+
+            if (s.compare(pos, currentStr.size(), currentStr) != 0)
+                break;
+
+            pos += currentStr.size();
+            ++current;
+        }
+
+        if (pos == s.size())
+        {
+            cout << "YES " << first << endl;
+            return;
+        }
+    }
+
+    cout << "NO" << endl;
+}
+
 void separateNumbers(string s)
 {
     std::string temp;
