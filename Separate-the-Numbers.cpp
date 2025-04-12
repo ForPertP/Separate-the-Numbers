@@ -20,9 +20,6 @@ void separateNumbers(string s)
     {
         string first_str = s.substr(0, len);
 
-        if (first_str[0] == '0')
-            continue;
-
         long long first = stoll(first_str);
         long long current = first;
         size_t pos = 0;
