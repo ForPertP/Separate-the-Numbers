@@ -45,6 +45,33 @@ void separateNumbers(string s)
     cout << "NO" << endl;
 }
 
+
+void separateNumbers2(string s)
+{
+    int maxLen = s.size() / 2;
+    for (int len = 1; len <= maxLen; ++len)
+    {
+        string first_str = s.substr(0, len);
+        long long first = stoll(first_str);
+        string temp = first_str;
+
+        long long next = first;
+        while (temp.length() < s.length())
+        {
+            ++next;
+            temp += to_string(next);
+        }
+
+        if (temp == s)
+        {
+            cout << "YES " << first << endl;
+            return;
+        }
+    }
+    cout << "NO" << endl;
+}
+
+
 void separateNumbers(string s)
 {
     std::string temp;
