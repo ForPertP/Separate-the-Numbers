@@ -21,6 +21,39 @@ class Result
      *
      * The function accepts STRING s as parameter.
      */
+
+    public static void separateNumbers(string s)
+    {
+        int maxLen = s.length / 2;
+    
+        for (int len = 1; len <= maxLen; ++len)
+        {
+            string firstStr = s.Substring(0, len);
+    
+            long firstNum = long.Parse(firstStr);
+            long currentNum = firstNum;
+            int pos = 0;
+    
+            while (pos < s.Length)
+            {
+                string currentStr = currentNum.ToString();
+    
+                if (s.Substring(pos, currentStr.Length != currentStr)
+                    break;
+    
+                pos += currentStr.Length;
+                ++currentNum;
+            }
+    
+         if (pos == s.Length)
+            {
+                Console.WriteLine("YES " + first);
+                return;
+            }
+        }
+
+        Console.WriteLine("NO");
+    }    
 }
 
 
