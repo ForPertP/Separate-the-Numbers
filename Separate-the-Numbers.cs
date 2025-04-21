@@ -22,7 +22,7 @@ class Result
      * The function accepts STRING s as parameter.
      */
 
-    public static void separateNumbers(string s)
+    public static void separateNumbers1(string s)
     {
         int maxLen = s.length / 2;
     
@@ -58,12 +58,33 @@ class Result
 
     public static void separateNumbers2(string s)
     {
+        string temp = "";
+        string num = "";
+
+        for (int i = 1; i <= s.Length / 2 && temp != s; ++i)
+        {
+            num = temp = s.Substring(0, i);
+
+            if (num.StartsWith("0"))
+                continue;
+
+            for (int j = 1; temp.Length < s.Length; ++j)
+            {
+                temp += (long.Parse(num) + j).ToString();
+            }
+        }
+
+        Console.WriteLine(temp == s ? "YES " + num : "NO");
+    }
+                    
+    public static void separateNumbers(string s)
+    {
         int maxLen = s.Length / 2;
     
         for (int len = 1; len <= maxLen; ++len)
         {
             string firstStr = s.Substring(0, len);
-            long firstNum = Long.Parse(firstStr);
+            long firstNum = long.Parse(firstStr);
             long currentNum = firstNum;
     
             string temp = firstStr;
@@ -76,7 +97,7 @@ class Result
     
             if (temp == s)
             {
-                Console.WriteLine("YES " + first);
+                Console.WriteLine("YES " + firstNum);
                                   
                 return;
             }
