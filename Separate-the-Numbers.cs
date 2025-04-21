@@ -54,6 +54,37 @@ class Result
 
         Console.WriteLine("NO");
     }    
+
+
+    public static void separateNumbers2(string s)
+    {
+        int maxLen = s.Length / 2;
+    
+        for (int len = 1; len <= maxLen; ++len)
+        {
+            string firstStr = s.Substring(0, len);
+            long firstNum = Long.Parse(firstStr);
+            long currentNum = firstNum;
+    
+            string temp = firstStr;
+    
+            while (temp.Length < s.Length)
+            {
+                ++currentNum;
+                temp += currentNum.ToString();
+            }
+    
+            if (temp == s)
+            {
+                Console.WriteLine("YES " + first);
+                                  
+                return;
+            }
+        }
+    
+        cout << "NO" << endl;
+    }
+                    
 }
 
 
