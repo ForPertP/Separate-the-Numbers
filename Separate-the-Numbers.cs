@@ -1,4 +1,3 @@
-Separate-the-Numbers
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
@@ -22,30 +21,33 @@ class Result
      * The function accepts STRING s as parameter.
      */
 
-    public static void separateNumbers1(string s)
+    public static void separateNumbers(string s)
     {
-        int maxLen = s.length / 2;
-    
+        int maxLen = s.Length / 2;
+
         for (int len = 1; len <= maxLen; ++len)
         {
             string firstStr = s.Substring(0, len);
-    
-            long firstNum = long.Parse(firstStr);
-            long currentNum = firstNum;
+
+            if (firstStr.StartsWith("0"))
+                continue;
+
+            long first = long.Parse(firstStr);
+            long current = first;
             int pos = 0;
-    
+
             while (pos < s.Length)
             {
-                string currentStr = currentNum.ToString();
-    
-                if (s.Substring(pos, currentStr.Length != currentStr)
+                string currentStr = current.ToString();
+
+                if (pos + currentStr.Length > s.Length || s.Substring(pos, currentStr.Length) != currentStr)
                     break;
-    
+
                 pos += currentStr.Length;
-                ++currentNum;
+                current++;
             }
-    
-         if (pos == s.Length)
+
+            if (pos == s.Length)
             {
                 Console.WriteLine("YES " + first);
                 return;
@@ -53,31 +55,10 @@ class Result
         }
 
         Console.WriteLine("NO");
-    }    
-
+    }
+    
 
     public static void separateNumbers2(string s)
-    {
-        string temp = "";
-        string num = "";
-
-        for (int i = 1; i <= s.Length / 2 && temp != s; ++i)
-        {
-            num = temp = s.Substring(0, i);
-
-            if (num.StartsWith("0"))
-                continue;
-
-            for (int j = 1; temp.Length < s.Length; ++j)
-            {
-                temp += (long.Parse(num) + j).ToString();
-            }
-        }
-
-        Console.WriteLine(temp == s ? "YES " + num : "NO");
-    }
-                    
-    public static void separateNumbers(string s)
     {
         int maxLen = s.Length / 2;
     
@@ -98,16 +79,35 @@ class Result
             if (temp == s)
             {
                 Console.WriteLine("YES " + firstNum);
-                                  
                 return;
             }
         }
     
-        cout << "NO" << endl;
-    }
-                    
-}
+        Console.WriteLine("NO");
+    }    
 
+
+    public static void separateNumbers3(string s)
+    {
+        string temp = "";
+        string num = "";
+
+        for (int i = 1; i <= s.Length / 2 && temp != s; ++i)
+        {
+            num = temp = s.Substring(0, i);
+
+            if (num.StartsWith("0"))
+                continue;
+
+            for (int j = 1; temp.Length < s.Length; ++j)
+            {
+                temp += (long.Parse(num) + j).ToString();
+            }
+        }
+
+        Console.WriteLine(temp == s ? "YES " + num : "NO");
+    }
+}
 
 
 class Solution
@@ -124,4 +124,3 @@ class Solution
         }
     }
 }
-
