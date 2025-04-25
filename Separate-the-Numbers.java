@@ -29,15 +29,15 @@ class Result {
             if (firstStr.startsWith("0"))
                 continue;
 
-            long first = parseLong(firstStr);
+            long first = Long.parseLong(firstStr);
             long current = first;
             int pos = 0;
 
             while (pos < s.length())
             {
-                string currentStr = current.toString();
+                String currentStr = Long.toString(current);
 
-                if (pos + currentStr.length() > s.length() || s.substring(pos, currentStr.Length).eaqules(currentStr))
+                if (pos + currentStr.length() > s.length() || !s.substring(pos, pos + currentStr.length()).equals(currentStr)))
                     break;
 
                 pos += currentStr.length();
@@ -46,12 +46,46 @@ class Result {
 
             if (pos == s.length())
             {
-                System.Out.println("YES " + first);
+                System.out.println("YES " + first);
                 return;
             }
         }
 
-        System.Out.println("NO");
+        System.out.println("NO");
+    }    
+
+
+    public static void separateNumbers(String s) {
+        int maxLen = s.length() / 2;
+        
+        for (int len = 1; len <= maxLen; ++len) {
+            String firstStr = s.substring(0, len);
+        
+            if (firstStr.startsWith("0"))
+                continue;
+        
+            long first = Long.parseLong(firstStr);
+            long current = first;
+            int pos = 0;
+        
+            while (pos < s.length()) {
+                String currentStr = Long.toString(current);
+        
+                if (pos + currentStr.length() > s.length() ||
+                    !s.substring(pos, pos + currentStr.length()).equals(currentStr))
+                    break;
+        
+                pos += currentStr.length();
+                current++;
+            }
+        
+            if (pos == s.length()) {
+                System.out.println("YES " + first);
+                return;
+            }
+        }
+        
+        System.out.println("NO");
     }    
 }
 
