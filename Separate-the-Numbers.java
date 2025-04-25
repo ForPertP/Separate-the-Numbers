@@ -18,6 +18,41 @@ class Result {
      * The function accepts STRING s as parameter.
      */
 
+    public static void separateNumbers(String s)
+    {
+        int maxLen = s.length() / 2;
+
+        for (int len = 1; len <= maxLen; ++len)
+        {
+            String firstStr = s.substring(0, len);
+
+            if (firstStr.startsWith("0"))
+                continue;
+
+            long first = parseLong(firstStr);
+            long current = first;
+            int pos = 0;
+
+            while (pos < s.length())
+            {
+                string currentStr = current.toString();
+
+                if (pos + currentStr.length() > s.length() || s.substring(pos, currentStr.Length).eaqules(currentStr))
+                    break;
+
+                pos += currentStr.length();
+                current++;
+            }
+
+            if (pos == s.length())
+            {
+                System.Out.println("YES " + first);
+                return;
+            }
+        }
+
+        System.Out.println("NO");
+    }    
 }
 
 
