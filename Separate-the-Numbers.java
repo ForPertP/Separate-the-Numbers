@@ -97,18 +97,18 @@ class Result {
         for (int len = 1; len <= maxLen; ++len)
         {
             String firstStr = s.substring(0, len);
-            Long firstNum = Long.longParse(firstStr);
-            Long currentNum = firstNum;
+            long firstNum = Long.parseLong(firstStr);
+            long currentNum = firstNum;
     
             String temp = firstStr;
     
-            while (temp.Length < s.Length)
+            while (temp.length() < s.length())
             {
                 ++currentNum;
-                temp += long.toString(currentNum);
+                temp += Long.toString(currentNum);
             }
     
-            if (temp == s)
+            if (temp.equals(s))
             {
                 System.out.println("YES " + firstNum);
                 return;
@@ -117,7 +117,35 @@ class Result {
     
         System.out.println("NO");
     }    
-    
+
+
+    public static void separateNumbers2(String s)
+    {
+        int maxLen = s.length() / 2;
+
+        for (int len = 1; len <= maxLen; ++len)
+        {
+            String firstStr = s.substring(0, len);
+            long firstNum = Long.parseLong(firstStr);
+            long currentNum = firstNum;
+
+            String temp = firstStr;
+
+            while (temp.length() < s.length())
+            {
+                ++currentNum;
+                temp += Long.toString(currentNum);
+            }
+
+            if (temp.equals(s))
+            {
+                System.out.println("YES " + firstNum);
+                return;
+            }
+        }
+
+        System.out.println("NO");
+    }
 }
 
 
