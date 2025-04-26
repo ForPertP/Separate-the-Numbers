@@ -87,6 +87,37 @@ class Result {
         
         System.out.println("NO");
     }    
+
+
+    
+    public static void separateNumbers2(String s)
+    {
+        int maxLen = s.length() / 2;
+    
+        for (int len = 1; len <= maxLen; ++len)
+        {
+            String firstStr = s.substring(0, len);
+            Long firstNum = Long.longParse(firstStr);
+            Long currentNum = firstNum;
+    
+            String temp = firstStr;
+    
+            while (temp.Length < s.Length)
+            {
+                ++currentNum;
+                temp += long.toString(currentNum);
+            }
+    
+            if (temp == s)
+            {
+                System.out.println("YES " + firstNum);
+                return;
+            }
+        }
+    
+        System.out.println("NO");
+    }    
+    
 }
 
 
