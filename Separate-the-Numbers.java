@@ -87,6 +87,23 @@ class Result {
     }    
 
 
+    public static void separateNumbers3(String s) {
+        String temp = "";
+        String num = "";
+
+        for (int i = 1; i <= s.length() / 2 && !s.equals(temp); ++i) {
+            num = temp = s.substring(0, i);
+
+            if (num.startsWith("0"))
+                continue;
+
+            for (int j = 1; temp.length() < s.length(); ++j) {
+                temp += Long.toString(Long.parseLong(num) + j);
+            }
+        }
+
+        System.out.println(s.equals(temp) ? "YES " + num : "NO");
+    }
 }
 
 
