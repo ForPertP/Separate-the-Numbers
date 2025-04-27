@@ -18,12 +18,10 @@ class Result {
      * The function accepts STRING s as parameter.
      */
 
-    public static void separateNumbers(String s)
-    {
+    public static void separateNumbers(String s) {
         int maxLen = s.length() / 2;
 
-        for (int len = 1; len <= maxLen; ++len)
-        {
+        for (int len = 1; len <= maxLen; ++len) {
             String firstStr = s.substring(0, len);
 
             if (firstStr.startsWith("0"))
@@ -33,29 +31,29 @@ class Result {
             long current = first;
             int pos = 0;
 
-            while (pos < s.length())
-            {
+            while (pos < s.length()) {
                 String currentStr = Long.toString(current);
 
-                if (pos + currentStr.length() > s.length() || !s.substring(pos, pos + currentStr.length()).equals(currentStr)))
+                if (pos + currentStr.length() > s.length() ||
+                    !s.substring(pos, pos + currentStr.length()).equals(currentStr))
                     break;
 
                 pos += currentStr.length();
                 current++;
             }
 
-            if (pos == s.length())
-            {
+            if (pos == s.length()) {
                 System.out.println("YES " + first);
                 return;
             }
         }
 
         System.out.println("NO");
-    }    
+    }
 
 
-    public static void separateNumbers(String s) {
+    public static void separateNumbers2(String s)
+    {
         int maxLen = s.length() / 2;
         
         for (int len = 1; len <= maxLen; ++len) {
@@ -89,63 +87,6 @@ class Result {
     }    
 
 
-    
-    public static void separateNumbers2(String s)
-    {
-        int maxLen = s.length() / 2;
-    
-        for (int len = 1; len <= maxLen; ++len)
-        {
-            String firstStr = s.substring(0, len);
-            long firstNum = Long.parseLong(firstStr);
-            long currentNum = firstNum;
-    
-            String temp = firstStr;
-    
-            while (temp.length() < s.length())
-            {
-                ++currentNum;
-                temp += Long.toString(currentNum);
-            }
-    
-            if (temp.equals(s))
-            {
-                System.out.println("YES " + firstNum);
-                return;
-            }
-        }
-    
-        System.out.println("NO");
-    }    
-
-
-    public static void separateNumbers2(String s)
-    {
-        int maxLen = s.length() / 2;
-
-        for (int len = 1; len <= maxLen; ++len)
-        {
-            String firstStr = s.substring(0, len);
-            long firstNum = Long.parseLong(firstStr);
-            long currentNum = firstNum;
-
-            String temp = firstStr;
-
-            while (temp.length() < s.length())
-            {
-                ++currentNum;
-                temp += Long.toString(currentNum);
-            }
-
-            if (temp.equals(s))
-            {
-                System.out.println("YES " + firstNum);
-                return;
-            }
-        }
-
-        System.out.println("NO");
-    }
 }
 
 
