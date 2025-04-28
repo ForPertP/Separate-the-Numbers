@@ -74,6 +74,29 @@ void separateNumbers2(string s)
 }
 
 
+void separateNumbers3(const string& s)
+{
+    string temp = "";
+    string num = "";
+
+    for (int i = 1; i <= s.length() / 2 && temp != s; ++i) {
+        num = temp = s.substr(0, i);
+
+        if (num[0] == '0')
+            continue;
+
+        for (int j = 1; temp.length() < s.length(); ++j) {
+            temp += to_string(stoll(num) + j);
+        }
+    }
+
+    if (temp == s)
+        cout << "YES " << num << endl;
+    else
+        cout << "NO" << endl;
+}
+
+        
 int main()
 {
     string q_temp;
